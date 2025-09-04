@@ -1,0 +1,4 @@
+OllamaSetup.exe
+data/ollama/models/
+*.pyc
+__pycache__/
