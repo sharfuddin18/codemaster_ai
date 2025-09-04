@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  codemaster-ai:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app/app
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    depends_on:
+      - ollama
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ../data/ollama:/root/.ollama
+    restart: unless-stopped
