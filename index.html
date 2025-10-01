@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeMaster-AI - Privacy-First Enterprise AI Coding Assistant</title>
+    <meta name="description" content="CodeMaster-AI: On-premise enterprise AI coding assistant supporting 22+ programming languages. Privacy-first, cost-effective alternative to GitHub Copilot." />
+    <meta name="author" content="Sharfuddin Ahmed" />
+    <meta name="keywords" content="AI coding assistant, enterprise AI, privacy-first AI, code generation, code review, on-premise deployment, GitHub Copilot alternative, software development" />
+    <meta property="og:title" content="CodeMaster-AI - Privacy-First Enterprise AI Coding Assistant" />
+    <meta property="og:description" content="50% more affordable than GitHub Copilot with complete data sovereignty. Built in India by Sharfuddin Ahmed." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.codemaster-ai.com" />
+    <meta property="og:image" content="https://www.codemaster-ai.com/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.codemaster-ai.com/og-image.jpg" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CodeMaster-AI",
+      "url": "https://www.codemaster-ai.com",
+      "logo": "https://www.codemaster-ai.com/logo.svg",
+      "sameAs": [
+        "https://www.linkedin.com/in/sharfuddin-ahmed-10bb71326"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "url": "https://www.codemaster-ai.com/contact"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "CodeMaster-AI",
+      "description": "Privacy-First Enterprise AI Coding Assistant supporting 22+ programming languages with on-premise deployment and full data sovereignty.",
+      "brand": {
+        "@type": "Brand",
+        "name": "CodeMaster-AI"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "CodeMaster-AI"
+      }
+    }
+    </script>
+
+    <style>
+        /* Base reset and font */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+            background-color: #fff;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* System dark mode detection */
+        @media (prefers-color-scheme: dark) {
+            body:not(.light-mode) {
+                background-color: #121212;
+                color: #e0e0e0;
+            }
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        body.dark-mode .nav {
+            background: rgba(18, 18, 18, 0.95);
+            border-bottom-color: rgba(255,255,255,0.1);
+        }
+        body.dark-mode .nav-links a {
+            color: #ccc;
+        }
+        body.dark-mode .nav-links a:hover,
+        body.dark-mode .nav-links a:focus {
+            color: #667eea;
+        }
+        body.dark-mode .hero {
+            background: linear-gradient(135deg, #2a2a72 0%, #4b4ba2 50%, #8a8adb 100%);
+            color: #fff;
+        }
+        body.dark-mode .badge {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.15);
+            color: #eee;
+        }
+        body.dark-mode .badge:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        body.dark-mode a.cta-button {
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.6);
+        }
+        body.dark-mode .features {
+            background: #1f1f1f;
+            color: #ccc;
+        }
+        body.dark-mode .section-title {
+            color: #e0e0e0;
+        }
+        body.dark-mode .section-subtitle {
+            color: #b0b0b0;
+        }
+        body.dark-mode .feature-card {
+            background: #252525;
+            border-color: #444;
+            color: #ddd;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        body.dark-mode .feature-card h3 {
+            color: #e0e0e0;
+        }
+        body.dark-mode .feature-card p {
+            color: #b0b0b0;
+        }
+        body.dark-mode .feature-card:hover {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+        }
+        body.dark-mode .stats {
+            background: linear-gradient(135deg, #2a2a72 0%, #4b4ba2 100%);
+            color: #fff;
+        }
+        body.dark-mode .cta-section {
+            background: #1a1a1a;
+        }
+        body.dark-mode .footer {
+            background: #181818;
+            color: #9a9a9a;
+        }
+        body.dark-mode .footer h3 {
+            color: #667eea;
+        }
+        body.dark-mode .footer-contact p {
+            color: #b0b0b0;
+        }
+        body.dark-mode .footer-links {
+            border-top-color: #444;
+        }
+        body.dark-mode .scroll-top {
+            background: linear-gradient(45deg, #4b4ba2, #667eea);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+        }
+        body.dark-mode .mobile-menu-toggle {
+            color: #ccc;
+        }
+        body.dark-mode .mobile-menu {
+            background: rgba(18, 18, 18, 0.98);
+            border-color: #444;
+        }
+        body.dark-mode .mobile-menu a {
+            color: #ccc;
+        }
+        body.dark-mode .mobile-menu a:hover {
+            color: #667eea;
+        }
+
+        /* Scroll to top */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            font-size: 1.2rem;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover,
+        .scroll-top:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            outline: none;
+        }
+
+        /* Animated Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:focus,
+        .nav-links a:hover {
+            color: #667eea;
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
+        }
+
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .mobile-menu-toggle:focus {
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 1rem 2rem;
+            margin: 0;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 1rem 0;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu a:hover {
+            color: #667eea;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: white;
+            text-align: center;
+            padding: 10rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 1.3rem 3rem;
+            font-size: 1.15rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:focus {
+            outline: 3px solid #f093fb;
+            outline-offset: 3px;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(231, 76, 60, 0.4);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: white;
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: white;
+        }
+
+        /* Language Showcase */
+        .languages-ticker {
+            background: #2c3e50;
+            color: white;
+            padding: 1.5rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            animation: scroll 30s linear infinite;
+        }
+
+        .ticker-content span {
+            margin-right: 3rem;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .features {
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            margin-bottom: 5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            outline-offset: 2px;
+        }
+        .feature-card:focus-visible {
+            outline: 3px solid #667eea;
+        }
+
+        .feature-card-header {
+            padding: 3rem 2.5rem 2rem;
+        }
+
+        .feature-card-content {
+            padding: 0 2.5rem 3rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        .feature-card.expanded .feature-card-content {
+            max-height: 500px;
+            opacity: 1;
+            padding: 1rem 2.5rem 3rem;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: left 0.5s ease;
+        }
+
+        .feature-card:hover::before {
+            left: 0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .feature-card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .expand-icon {
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .feature-card p {
+            color: #7f8c8d;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            margin-bottom: 0;
+        }
+
+        .feature-details {
+            margin-top: 1.5rem;
+        }
+
+        .feature-details ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .feature-details li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .feature-details li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: 600;
+        }
+
+        .stats {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .stat {
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .cta-section {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        }
+
+        .cta-section h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .footer {
+            background: #1a252f;
+            color: #bdc3c7;
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer p {
+            margin-bottom: 0.7rem;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .footer-links {
+            margin-top: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid #34495e;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact {
+            margin: 2rem 0;
+        }
+
+        .footer-contact p {
+            color: #ecf0f1;
+            font-size: 1.1rem;
+        }
+
+        .footer-contact .highlight {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 8rem 1rem 4rem;
+                margin-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .hero-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .features {
+                padding: 4rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .feature-card-header {
+                padding: 2rem 1.5rem 1.5rem;
+            }
+
+            .feature-card-content {
+                padding: 0 1.5rem 2rem;
+            }
+
+            .feature-card.expanded .feature-card-content {
+                padding: 1rem 1.5rem 2rem;
+            }
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        /* Dark mode toggle button */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: #667eea;
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.6);
+            z-index: 1100;
+            transition: background 0.3s ease;
+        }
+        .dark-mode-toggle:hover,
+        .dark-mode-toggle:focus {
+            background: #555bbb;
+            outline: 2px solid #f093fb;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <button class="dark-mode-toggle" aria-pressed="false" aria-label="Toggle dark mode">Dark Mode</button>
+    
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-content">
+            <div class="nav-logo">🤖 CodeMaster-AI</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#stats">Stats</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#stats">Stats</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="hero" tabindex="-1">
+            <div class="hero-content">
+                <h1 class="float-animation">CodeMaster-AI</h1>
+                <p class="subtitle">Privacy-First Enterprise AI Coding Assistant<br />
+                Generate, review, and optimize code across <span class="highlight">22+ programming languages</span> with complete data sovereignty</p>
+                
+                <div class="hero-badges">
+                    <span class="badge">🔒 On-Premise Deployment</span>
+                    <span class="badge">⚡ 50% Cost Savings</span>
+                    <span class="badge">🚀 Enterprise Ready</span>
+                    <span class="badge">🇮🇳 Made in India</span>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="https://www.linkedin.com/in/sharfuddin-ahmed-10bb71326?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" class="cta-button">Request Enterprise Demo</a>
+                    <a href="#features" class="cta-button cta-secondary">Explore Features</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Language Ticker -->
+        <section class="languages-ticker" aria-label="Supported programming languages ticker">
+            <div class="ticker-content" aria-live="off">
+                <span>Python 🐍</span>
+                <span>JavaScript 🟨</span>
+                <span>Java ☕</span>
+                <span>C# 💻</span>
+                <span>Dart 🎯</span>
+                <span>Go 🐹</span>
+                <span>Rust 🦀</span>
+                <span>TypeScript 📘</span>
+                <span>Ruby 💎</span>
+                <span>PHP 🐘</span>
+                <span>Kotlin 📱</span>
+                <span>Swift 🦉</span>
+                <span>C++ ⚡</span>
+                <span>C 🔧</span>
+                <span>Scala ⚖️</span>
+                <span>R 📊</span>
+                <span>SQL 🗃️</span>
+                <span>Bash 🖥️</span>
+                <span>MATLAB 🔬</span>
+                <span>Perl 🐪</span>
+                <span>Haskell λ</span>
+                <span>Lua 🌙</span>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section id="stats" class="stats" tabindex="-1" aria-label="Key statistics about CodeMaster-AI">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat" tabindex="0" aria-label="22 plus supported programming languages">
+                        <span class="stat-number">22+</span>
+                        <span class="stat-label">Programming Languages</span>
+                    </div>
+                    <div class="stat" tabindex="0" aria-label="50 percent cost reduction compared to competitors">
+                        <span class="stat-number">50%</span>
+                        <span class="stat-label">Cost Reduction</span>
+                    </div>
+                    <div class="stat" tabindex="0" aria-label="Full data privacy">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Data Privacy</span>
+                    </div>
+                    <div class="stat" tabindex="0" aria-label="Available 24 by 7 AI assistance">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">AI Assistance</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features" tabindex="-1">
+            <div class="container">
+                <h2 class="section-title">Enterprise-Grade AI Coding</h2>
+                <p class="section-subtitle">Powerful features designed for security-conscious organizations that need complete control over their code and data</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card" tabindex="0" role="button" aria-expanded="false" onclick="toggleFeature(this)" onkeydown="if(event.key==='Enter' || event.key===' ') { toggleFeature(this); event.preventDefault(); }">
+                        <div class="feature-card-header">
+                            <span class="feature-icon">🔒</span>
+                            <h3>Privacy-First Architecture <span class="expand-icon">▼</span></h3>
+                            <p>Complete on-premise deployment ensures your code never leaves your infrastructure. Perfect for regulated industries and sensitive projects.</p>
+                        </div>
+                        <div class="feature-card-content">
+                            <div class="feature-details">
+                                <ul>
+                                    <li>Zero data transmission to external servers</li>
+                                    <li>Air-gapped deployment options available</li>
+                                    <li>GDPR, HIPAA, and SOC2 compliant</li>
+                                    <li>Full audit trails and access controls</li>
+                                    <li>Custom encryption and security protocols</li>
+                                    <li>Perfect for banking, healthcare, and defense sectors</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card" tabindex="0" role="button" aria-expanded="false" onclick="toggleFeature(this)" onkeydown="if(event.key==='Enter' || event.key===' ') { toggleFeature(this); event.preventDefault(); }">
+                        <div class="feature-card-header">
+                            <span class="feature-icon">⚡</span>
+                            <h3>Multi-Language Support <span class="expand-icon">▼</span></h3>
+                            <p>Generate, review, and optimize code in Python, JavaScript, Java, C#, Dart, Go, Rust, and 15+ additional programming languages.</p>
+                        </div>
+                        <div class="feature-card-content">
+                            <div class="feature-details">
+                                <ul>
+                                    <li>Python, JavaScript, TypeScript, Java, C#</li>
+                                    <li>Go, Rust, Dart, Flutter, Kotlin, Swift</li>
+                                    <li>C/C++, PHP, Ruby, Scala, R, SQL</li>
+                                    <li>Bash scripting and shell commands</li>
+                                    <li>Framework-specific assistance (React, Django, Spring)</li>
+                                    <li>Code translation between languages</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card" tabindex="0" role="button" aria-expanded="false" onclick="toggleFeature(this)" onkeydown="if(event.key==='Enter' || event.key===' ') { toggleFeature(this); event.preventDefault(); }">
+                        <div class="feature-card-header">
+                            <span class="feature-icon">💰</span>
+                            <h3>Cost-Effective Solution <span class="expand-icon">▼</span></h3>
+                            <p>50% more affordable than GitHub Copilot while providing superior enterprise features and complete data control.</p>
+                        </div>
+                        <div class="feature-card-content">
+                            <div class="feature-details">
+                                <ul>
+                                    <li>One-time licensing vs recurring subscriptions</li>
+                                    <li>Unlimited developers and repositories</li>
+                                    <li>No per-seat pricing limitations</li>
+                                    <li>Reduced infrastructure costs with on-premise deployment</li>
+                                    <li>No vendor lock-in or data export fees</li>
+                                    <li>ROI achieved within 3-6 months</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card" tabindex="0" role="button" aria-expanded="false" onclick="toggleFeature(this)" onkeydown="if(event.key==='Enter' || event.key===' ') { toggleFeature(this); event.preventDefault(); }">
+                        <div class="feature-card-header">
+                            <span class="feature-icon">🚀</span>
+                            <h3>Enterprise Integration <span class="expand-icon">▼</span></h3>
+                            <p>Seamless integration with VS Code, JetBrains IDEs, and CI/CD pipelines. Docker-based deployment for any infrastructure.</p>
+                        </div>
+                        <div class="feature-card-content">
+                            <div class="feature-details">
+                                <ul>
+                                    <li>VS Code, IntelliJ IDEA, PyCharm, WebStorm</li>
+                                    <li>Jenkins, GitLab CI, Azure DevOps, GitHub Actions</li>
+                                    <li>Docker and Kubernetes deployment</li>
+                                    <li>SSO integration (SAML, LDAP, Active Directory)</li>
+                                    <li>API integration for custom workflows</li>
+                                    <li>24/7 enterprise support and training</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card" tabindex="0" role="button" aria-expanded="false" onclick="toggleFeature(this)" onkeydown="if(event.key==='Enter' || event.key===' ') { toggleFeature(this); event.preventDefault(); }">
+                        <div class="feature-card-header">
+                            <span class="feature-icon">🔍</span>
+                            <h3>Code Review & Analysis <span class="expand-icon">▼</span></h3>
+                            <p>Automated security vulnerability detection, code quality analysis, and compliance checking with detailed reporting.</p>
+                        </div>
+                        <div class="feature-card-content">
+                            <div class="feature-details">
+                                <ul>
+                                    <li>OWASP Top 10 vulnerability scanning</li>
+                                    <li>Code quality metrics and technical debt analysis</li>
+                                    <li>Performance optimization suggestions</li>
+                                    <li>Compliance checking (PCI DSS, SOX, ISO 27001)</li>
+                                    <li>Custom rule engine for organization standards</li>
+                                    <li>Detailed reporting and remediation guidance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card" tabindex="0" role="button" aria-expanded="false" onclick="toggleFeature(this)" onkeydown="if(event.key==='Enter' || event.key===' ') { toggleFeature(this); event.preventDefault(); }">
+                        <div class="feature-card-header">
+                            <span class="feature-icon">📚</span>
+                            <h3>Custom Knowledge Base <span class="expand-icon">▼</span></h3>
+                            <p>Train on your organization's coding standards, internal APIs, and proprietary frameworks for contextually aware assistance.</p>
+                        </div>
+                        <div class="feature-card-content">
+                            <div class="feature-details">
+                                <ul>
+                                    <li>Train on internal codebases and documentation</li>
+                                    <li>Custom API and library integration</li>
+                                    <li>Organization-specific coding standards</li>
+                                    <li>Proprietary framework and architecture patterns</li>
+                                    <li>Team knowledge sharing and best practices</li>
+                                    <li>Continuous learning from code reviews</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="contact" class="cta-section" tabindex="-1">
+            <div class="container">
+                <h2>Ready to Transform Your Development Process?</h2>
+                <p>Join leading enterprises using CodeMaster-AI for secure, efficient, and cost-effective AI-powered coding</p>
+                <a href="https://www.linkedin.com/in/sharfuddin-ahmed-10bb71326?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" class="cta-button">Schedule Your Demo</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>CodeMaster-AI</h3>
+            <p>Privacy-First Enterprise AI Coding Assistant</p>
+            <p>Built in India 🇮🇳 for Global Enterprises</p>
+            
+            <div class="footer-contact">
+                <p><strong>Developed by:</strong> <span class="highlight">Sharfuddin Ahmed</span></p>
+                <p><strong>Location:</strong> Bangalore, India</p>
+                <p><strong>Specialization:</strong> AI Development & Enterprise Solutions</p>
+                <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sharfuddin-ahmed-10bb71326?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" style="color: #3498db; text-decoration: none;">Connect with Sharfuddin Ahmed</a></p>
+            </div>
+            
+            <div class="footer-links">
+                <p>&copy; 2025 CodeMaster-AI. Empowering developers with privacy-first AI solutions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" onclick="scrollToTop()" aria-label="Scroll to top">↑</button>
+
+    <script>
+        // Enhanced error handling and initialization
+        (function() {
+            'use strict';
+
+            // System dark mode detection
+            function initializeTheme() {
+                const savedTheme = localStorage.getItem('darkMode');
+                const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                
+                if (savedTheme === 'true' || (savedTheme === null && systemPrefersDark)) {
+                    setDarkMode(true);
+                } else {
+                    setDarkMode(false);
+                }
+            }
+
+            // Dark mode toggle functionality
+            const toggleBtn = document.querySelector('.dark-mode-toggle');
+            function setDarkMode(enabled) {
+                try {
+                    const body = document.body;
+                    if (enabled) {
+                        body.classList.add('dark-mode');
+                        body.classList.remove('light-mode');
+                        toggleBtn.setAttribute('aria-pressed', 'true');
+                        toggleBtn.textContent = 'Light Mode';
+                        localStorage.setItem('darkMode', 'true');
+                    } else {
+                        body.classList.remove('dark-mode');
+                        body.classList.add('light-mode');
+                        toggleBtn.setAttribute('aria-pressed', 'false');
+                        toggleBtn.textContent = 'Dark Mode';
+                        localStorage.setItem('darkMode', 'false');
+                    }
+                } catch (error) {
+                    console.warn('Theme switching error:', error);
+                }
+            }
+
+            // Mobile menu functionality
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileMenu = document.querySelector('.mobile-menu');
+
+            function toggleMobileMenu() {
+                const isOpen = mobileMenu.classList.contains('open');
+                if (isOpen) {
+                    mobileMenu.classList.remove('open');
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                } else {
+                    mobileMenu.classList.add('open');
+                    mobileToggle.setAttribute('aria-expanded', 'true');
+                }
+            }
+
+            // Event listeners
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', () => {
+                    setDarkMode(!document.body.classList.contains('dark-mode'));
+                });
+            }
+
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', toggleMobileMenu);
+            }
+
+            // Close mobile menu when clicking on links
+            if (mobileMenu) {
+                mobileMenu.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'A') {
+                        setTimeout(() => {
+                            mobileMenu.classList.remove('open');
+                            mobileToggle.setAttribute('aria-expanded', 'false');
+                        }, 100);
+                    }
+                });
+            }
+
+            // Scroll to top functionality
+            window.scrollToTop = function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+
+            // Show/hide scroll to top button
+            const scrollButton = document.querySelector('.scroll-top');
+            function updateScrollButton() {
+                if (window.pageYOffset > 300) {
+                    scrollButton?.classList.add('visible');
+                } else {
+                    scrollButton?.classList.remove('visible');
+                }
+            }
+
+            // Feature card toggle functionality
+            window.toggleFeature = function(card) {
+                try {
+                    const isExpanded = card.classList.contains('expanded');
+                    
+                    // Close all other cards
+                    document.querySelectorAll('.feature-card').forEach(otherCard => {
+                        if (otherCard !== card) {
+                            otherCard.classList.remove('expanded');
+                            otherCard.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                    
+                    // Toggle current card
+                    if (isExpanded) {
+                        card.classList.remove('expanded');
+                        card.setAttribute('aria-expanded', 'false');
+                    } else {
+                        card.classList.add('expanded');
+                        card.setAttribute('aria-expanded', 'true');
+                    }
+                } catch (error) {
+                    console.warn('Feature toggle error:', error);
+                }
+            };
+
+            // Smooth scrolling with offset correction
+            function initSmoothScrolling() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            const offset = 80; // nav height + padding
+                            const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                            const offsetPosition = elementPosition - offset;
+                            
+                            window.scrollTo({
+                                top: Math.max(0, offsetPosition),
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+            }
+
+            // Entrance animations
+            function initAnimations() {
+                const elements = document.querySelectorAll('.feature-card, .stat');
+                elements.forEach(element => {
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(50px)';
+                    element.style.transition = 'all 0.6s ease-out';
+                });
+
+                function animateOnScroll() {
+                    elements.forEach(element => {
+                        const elementTop = element.getBoundingClientRect().top;
+                        const elementVisible = 150;
+                        
+                        if (elementTop < window.innerHeight - elementVisible) {
+                            element.style.opacity = '1';
+                            element.style.transform = 'translateY(0)';
+                        }
+                    });
+                }
+
+                // Initial check and scroll listener
+                animateOnScroll();
+                window.addEventListener('scroll', animateOnScroll);
+            }
+
+            // Initialize everything when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    initializeTheme();
+                    initSmoothScrolling();
+                    initAnimations();
+                    window.addEventListener('scroll', updateScrollButton);
+                });
+            } else {
+                initializeTheme();
+                initSmoothScrolling();
+                initAnimations();
+                window.addEventListener('scroll', updateScrollButton);
+            }
+
+            // Handle system theme changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                if (localStorage.getItem('darkMode') === null) {
+                    setDarkMode(e.matches);
+                }
+            });
+
+        })();
+    </script>
+</body>
+</html>
+
