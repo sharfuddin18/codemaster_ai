@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMaster-AI - Privacy-First Enterprise AI Coding Assistant</title>
+    <meta name="description" content="CodeMaster-AI: On-premise enterprise AI coding assistant supporting 22+ programming languages. Privacy-first, cost-effective alternative to GitHub Copilot.">
+    <meta property="og:title" content="CodeMaster-AI - Privacy-First Enterprise AI Coding Assistant">
+    <meta property="og:description" content="50% more affordable than GitHub Copilot with complete data sovereignty. Built in India.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        
+        /* Animated Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: white;
+            text-align: center;
+            padding: 10rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 4.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+        
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+        }
+        
+        .badge:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 1.3rem 3rem;
+            font-size: 1.15rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(231, 76, 60, 0.4);
+        }
+        
+        .cta-secondary {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: white;
+        }
+        
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: white;
+        }
+        
+        /* Language Showcase */
+        .languages-ticker {
+            background: #2c3e50;
+            color: white;
+            padding: 1.5rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .ticker-content {
+            display: inline-block;
+            animation: scroll 30s linear infinite;
+        }
+        
+        .ticker-content span {
+            margin-right: 3rem;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+        
+        .features {
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            margin-bottom: 5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 3rem 2.5rem;
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: left 0.5s ease;
+        }
+        
+        .feature-card:hover::before {
+            left: 0;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+        
+        .feature-card h3 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .feature-card p {
+            color: #7f8c8d;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        .stats {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .stat {
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat:hover {
+            transform: scale(1.05);
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-section {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+            position: relative;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        }
+        
+        .cta-section h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+        
+        .footer {
+            background: #1a252f;
+            color: #bdc3c7;
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+        }
+        
+        .footer p {
+            margin-bottom: 0.7rem;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+        
+        .footer-links {
+            margin-top: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid #34495e;
+            font-size: 0.95rem;
+        }
+        
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            font-size: 1.2rem;
+            aria-label: "Scroll to top";
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 8rem 1rem 4rem;
+                margin-top: 60px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 320px;
+            }
+            
+            .hero-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .features {
+                padding: 4rem 1rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" role="navigation">
+        <div class="nav-content">
+            <div class="nav-logo">🤖 CodeMaster-AI</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#stats">Stats</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="float-animation">CodeMaster-AI</h1>
+            <p class="subtitle">Privacy-First Enterprise AI Coding Assistant<br>
+            Generate, review, and optimize code across <span class="highlight">22+ programming languages</span> with complete data sovereignty</p>
+            
+            <div class="hero-badges">
+                <span class="badge">🔒 On-Premise Deployment</span>
+                <span class="badge">⚡ 50% Cost Savings</span>
+                <span class="badge">🚀 Enterprise Ready</span>
+                <span class="badge">🇮🇳 Made in India</span>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="#contact" class="cta-button">Request Enterprise Demo</a>
+                <a href="#features" class="cta-button cta-secondary">Explore Features</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Language Ticker -->
+    <section class="languages-ticker">
+        <div class="ticker-content">
+            <span>Python 🐍</span>
+            <span>JavaScript 🟨</span>
+            <span>Java ☕</span>
+            <span>C# 💻</span>
+            <span>Dart 🎯</span>
+            <span>Go 🐹</span>
+            <span>Rust 🦀</span>
+            <span>TypeScript 📘</span>
+            <span>Ruby 💎</span>
+            <span>PHP 🐘</span>
+            <span>Kotlin 📱</span>
+            <span>Swift 🦉</span>
+            <span>C++ ⚡</span>
+            <span>C 🔧</span>
+            <span>Scala ⚖️</span>
+            <span>R 📊</span>
+            <span>SQL 🗃️</span>
+            <span>Bash 🖥️</span>
+            <span>MATLAB 🔬</span>
+            <span>Perl 🐪</span>
+            <span>Haskell λ</span>
+            <span>Lua 🌙</span>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat">
+                    <span class="stat-number">22</span>
+                    <span class="stat-label">Programming Languages</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50%</span>
+                    <span class="stat-label">Cost Reduction</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Data Privacy</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">AI Assistance</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Enterprise-Grade AI Coding</h2>
+            <p class="section-subtitle">Powerful features designed for security-conscious organizations that need complete control over their code and data</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h3>Privacy-First Architecture</h3>
+                    <p>Complete on-premise deployment ensures your code never leaves your infrastructure. Perfect for regulated industries and sensitive projects.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h3>Multi-Language Support</h3>
+                    <p>Generate, review, and optimize code in Python, JavaScript, Java, C#, Dart, Go, Rust, and 15+ additional programming languages.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">💰</span>
+                    <h3>Cost-Effective Solution</h3>
+                    <p>50% more affordable than GitHub Copilot while providing superior enterprise features and complete data control.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🚀</span>
+                    <h3>Enterprise Integration</h3>
+                    <p>Seamless integration with VS Code, JetBrains IDEs, and CI/CD pipelines. Docker-based deployment for any infrastructure.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">🔍</span>
+                    <h3>Code Review & Analysis</h3>
+                    <p>Automated security vulnerability detection, code quality analysis, and compliance checking with detailed reporting.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="feature-icon">📚</span>
+                    <h3>Custom Knowledge Base</h3>
+                    <p>Train on your organization's coding standards, internal APIs, a
